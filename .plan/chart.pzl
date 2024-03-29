@@ -38,11 +38,27 @@
       break_door : action {
          label = "Break flimsy door"
          depends_on = at_the_bottom
+         description = "Deduct 5 points from final score"
+      }
+      
+      search_rocks : action {
+         label = "Search rubble"
+         depends_on = at_the_bottom
+      }
+      
+      take_bobby_pin : action {
+         label = "Pick up bobby pin"
+         depends_on = search_rocks
+      }
+      
+      make_lock_pick : action {
+         label = "Fashion bobby pin into lockpick"
+         depends_on = take_bobby_pin
       }
       
       lockpick_door : action {
          label = "Lock-pick flimsy door"
-         depends_on = at_the_bottom
+         depends_on = make_lock_pick
       }
       
       enter_hall_of_song : action {
