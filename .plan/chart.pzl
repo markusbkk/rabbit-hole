@@ -35,6 +35,24 @@
          logic_gate_type = or
       }
       
+      break_door : action {
+         label = "Break flimsy door"
+         depends_on = at_the_bottom
+      }
+      
+      lockpick_door : action {
+         label = "Lock-pick flimsy door"
+         depends_on = at_the_bottom
+      }
+      
+      enter_hall_of_song : action {
+         depends_on = [
+            break_door,
+            lockpick_door
+         ]
+         logic_gate_type = or
+      }
+      
       at_the_hall_of_life : condition {
          label = "Inside the Hall of Life"
          depends_on = [
@@ -52,7 +70,7 @@
       at_the_the_hall_of_song : condition {
          label = "Inside the Hall of Song"
          depends_on = [ 
-            at_the_bottom,
+            enter_hall_of_song
          ]
       }
       
