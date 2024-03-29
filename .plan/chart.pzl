@@ -1,0 +1,51 @@
+// This puzzle dependency chart was created with Puzzlon
+// https://adventuron.io/puzzlon/
+: diagram  { 
+   skew = straight
+   recursion_check = true
+   title = Down the Rabbit Hole \n\n An Interactive Fiction in support of TALP  (Text Adventure Literacy Project) \n \n by Mark "Happy-Ferret" Bauermeister \n\n
+
+   events {
+      
+      falling_down : condition {
+         label = "Falling down the rabbit hole"
+      }
+      
+      at_the_bottom : condition {
+         label = "At the bottom of the rabbit hole"
+         depends_on = [ 
+            falling_down 
+         ]
+      }
+      
+      at_the_hall_of_life : condition {
+         label = "Inside the Hall of Life"
+         depends_on = [
+            at_the_bottom,
+         ]
+      }
+      
+      at_the_hall_of_remembrance : condition {
+         label = "Inside the Hall of Remembrance"
+         depends_on = [
+            at_the_bottom,
+         ]
+      }
+      
+      at_the_the_hall_of_song : condition {
+         label = "Inside the Hall of Song"
+         depends_on = [ 
+            at_the_bottom,
+         ]
+      }
+      
+      leave_the_burrow : goal {
+         depends_on = [ ]
+      }
+      
+      enter_wonderland : goal {
+         depends_on      = [ leave_the_burrow ]
+         end_state       = positive
+      }
+   }
+}
